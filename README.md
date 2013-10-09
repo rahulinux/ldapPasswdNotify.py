@@ -24,4 +24,4 @@ Before using this script, you need following things :
     
 # What else?
 If you have any questions or suggestions,  you want to share anything else with me, feel free to drop me an e-mail . 
-I appreciate any feedback, including constructive (and polite) criticism, improvement suggestions, questions about usage (if the documentation is unclear), 
+I appreciate any feedback, including constructive (and polite) criticism, improvement suggestions, questions about usage (if the documentation is unclear).
