@@ -11,7 +11,9 @@ import os
 Domain = 'linuxian.com'
 EmailDomain = 'abc.om' # if your mail domain is different this will becom user@abc.com 
 ConnectDC = 'ldap://localhost:389'
-
+# if 14 days remains to expire password then it will send email to that user 
+# until user update the new password
+PwdWarnDays = 14  
 
 Subject = "Ldap Password Expiry Details"
 
@@ -42,14 +44,17 @@ def GetUserDetails():
 
 
 def CheckExpiry():
-        """ This Function will Check each user ExpiryWarning
-            if it more thans WarningDays then it will send Emails
-            to that particuler user"""
+        """ 
+        This Function will Check each user ExpiryWarning
+        if it more thans WarningDays then it will send Emails
+        to that particuler user
+        """
       	 import datetime
          for k,v in Users:
               		uid = ''.join(v['uid'])
               		if 'pwdChangedTime' not in v:
-                		  	print "User " + uid + "  not Updated Password" 
+              				pass
+                		  	#print "User " + uid + "  not Updated Password" 
               		try:
               	  		  l = ''.join(v['pwdChangedTime'])
               		except:
@@ -64,8 +69,8 @@ def CheckExpiry():
               
               			ExpireIn = pwdMaxAge - DaysOfPasswordChange
               
-              			# if password not changed after pwdWarn ( 14 days) 
-              			if DaysOfPasswordChange >= pwdWarn:
+              			# if password not changed before 14 days 
+              			if ExpireIn <= PwdWarnDays:
               				SendMail = "echo '" + MsgBody % (uid,ExpireIn,d2) + "' \
               						  mail -s " + '"' + Subject + '"' + ' ' + \
               						  uid + '@' + EmailDomain 
