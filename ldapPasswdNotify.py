@@ -14,6 +14,7 @@ ConnectDC = 'ldap://localhost:389'
 # if 14 days remains to expire password then it will send email to that user 
 # until user update the new password
 PwdWarnDays = 14  
+pwdMaxAge = 45 # default password expire in 45 days as per ldap ppolicy
 
 Subject = "Ldap Password Expiry Details"
 
