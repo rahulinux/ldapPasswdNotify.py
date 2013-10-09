@@ -11,7 +11,7 @@ This script will check `pwdChangedTime` in each user Object and password change 
 
 # Prerequisites
 
-  - Before using this script, you need following things :
+Before using this script, you need following things :
 
   - By Default there is no restriction for Password Policy, we need to add schema for this. So you can refer following Link to Add pwdpolicy schema into your LDAP Server.
 
