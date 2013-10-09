@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # Author :- Rahul Patil<linuxian.com>
 
-
-import sys
 import ldap 
 import datetime
 import subprocess
